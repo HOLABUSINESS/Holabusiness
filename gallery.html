@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Business - Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <img src="hola.png" alt="Hola Business Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Gallery Section -->
+    <main>
+        <section class="gallery">
+            <h1>Our Gallery</h1>
+            <p>Explore moments from Hola Business, showcasing our services and brand excellence.</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/team.png" alt="Hola Business Team">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/interior.png" alt="Office Interior">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/office.png" alt="Hola Business Office">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/workshop.png" alt="Training Workshop">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/branding.png" alt="Branding Showcase">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/networking.png" alt="Networking Event">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox for Image Preview -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged Image">
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Hola Business | Group 23</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const galleryImages = document.querySelectorAll(".gallery-item img");
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const closeBtn = document.querySelector(".close");
+
+            galleryImages.forEach(img => {
+                img.addEventListener("click", function () {
+                    lightboxImg.src = img.src;
+                    lightbox.style.display = "flex";
+                });
+            });
+
+            closeBtn.addEventListener("click", function () {
+                lightbox.style.display = "none";
+            });
+
+            lightbox.addEventListener("click", function (event) {
+                if (event.target !== lightboxImg) {
+                    lightbox.style.display = "none";
+                }
+            });
+
+            lightbox.style.display = "none";
+        });
+    </script>
+</body>
+</html>
